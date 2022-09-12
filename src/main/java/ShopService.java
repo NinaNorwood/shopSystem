@@ -1,32 +1,37 @@
-import java.util.HashMap;
-import java.util.Map;
+import Orderfile.Order;
+import Orderfile.OrderRepo;
+import Productfile.Product;
+import Productfile.ProductRepo;
+
+import java.util.Collection;
 
 public class ShopService {
 
-    public static void main(String[] args) {
+    private ProductRepo productRepo = new ProductRepo();
+    private OrderRepo orderRepo = new OrderRepo();
 
+    public Product getProduct(int productId) {
+            return productRepo.get(productId);
+    }
 
+    public Collection listProducts() {
+        return productRepo.list();
+    }
 
+    public Order addOrder(Order order) {
+        return orderRepo.add(order);
+    }
 
+    public Order getOrder(int order) {
+        return orderRepo.get(order);
+    }
 
-//
+    public Collection listOrder() {
+        return orderRepo.list();
+    }
 
-//    private Map<Integer, OrderRepo> orders = new HashMap<>();
-
-
-//    public OrderRepo addOrder(OrderRepo orders){
-//        orders.put(orders.getOrderNumber() , orders);
-//        return orders;
-//    }
-//
-//    public OrderRepo placeOrder(Integer number){
-//        OrderRepo foundOrder = orders.get(number);
-//        System.out.println("Folgende Bestellung wurde gemacht: ");
-//        System.out.println(foundOrder);
-//
-//        return foundOrder;
-//    }
-
+    public Product addProducts(Product product) {
+        return productRepo.add(product);
     }
 
 }
